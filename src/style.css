@@ -1,0 +1,201 @@
+body{
+    margin: 0px;
+}
+#pantallaCarga, #escenaInicioJuego{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+#escenaInicioJuego{
+    /*background-image: url(img/fondo.jpg);*/
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#pantallaCarga div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    flex-direction: column;
+}
+.salida{
+    animation-name: fade-out;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+@keyframes fade-out{
+    from {opacity: 100%;}
+    to{opacity: 0%;}
+}
+p.center, h1.center{
+    text-align: center;
+}
+.hoverEnemigo{
+    padding: 10px;
+}
+.hoverEnemigo:hover{
+    background-color: aqua;
+}
+.hoverEnemigo:active{
+    background-color: brown;
+}
+#modal{
+    background-color: rgba(0,0,0,0.75);
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+}
+#seleccionEnemigos{
+    display: flex;
+    z-index: 0;
+}
+.modalConfirmacionEnemigo{
+    background-color: white;
+}
+#seleccionEnemigo img{
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+}
+#seleccionEnemigos p{
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+}
+#imagenEnemigo{
+    height: 50vh;
+}
+#escenaCombate{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.barra{
+    position: absolute;
+    background: #938f8f;
+    height: 15px;
+    display: flex;
+}
+#barraVidaPersonaje {
+    width: 30%;
+    bottom: 5%;
+}
+#barraVidaEnemigo {
+    width: 100%;
+    top: 0%;
+    left: 0%;
+}
+#barraVidaMovil {
+    width: 100%;
+    background: #ce1111;
+    margin-left: 0px;
+    transition: width 1s;
+}
+#barraVidaMovilPersonaje {
+    width: 100%;
+    background: #ce1111;
+    margin-left: 0px;
+    transition: width 1s;
+}
+.barra p {
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    width: 100px;
+    margin: 1px calc(50% - 50px);
+    text-align: center;
+    font-size: 0.75em;
+}
+#personajeEstadisticas{
+    position: absolute;
+    margin-left: -80%;
+}
+#enemigoEstadisticas{
+    position: absolute;
+    margin-left: 80%;
+}
+#btnAtaqueJugador{
+    position: absolute;
+    right: 3%;
+    bottom: 3%;
+    background: #bebec7;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#btnAtaqueJugador button{
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    border-color: #d3d3eb;
+}
+#btnAtaqueJugador button img{
+    width: 70%;
+    height: 70%;
+}
+.enemigoAvatar{
+    width: 200px;
+    height: 200px;
+    top: 5%;
+    left: 60%;
+    position: absolute;
+}
+.jugadorAvatar{
+    width: 180px;
+    height: 180px;
+    bottom: 15%;
+    left: calc(25% - 75px);
+    position: absolute;
+}
+#iconoCarga{
+    width: 15%;
+}
+#escenaPrincipal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.minicajaEstadisticas{
+    display: flex;
+    align-items: center;
+}
+#estadisticasPersonaje p{
+    margin: 5px 0px;
+}
+#estadisticasPersonaje button{
+    margin: 0px 10px;
+}
+#dañoIndicador1 span{
+    font-family: 'Concert One', cursive;
+    text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black, 1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+    color: white;
+    font-size: 1.5em;
+}
+#dañoIndicador2 span{
+    font-family: 'Concert One', cursive;
+    text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black, 1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+    color: white;
+    font-size: 1.5em;
+    opacity: 0;
+}
+.indic2{
+    animation-name: entrada-indicador;
+    animation-duration: 3s;
+}
+@keyframes entrada-indicador{
+    0% {opacity: 0;}
+    25% {opacity: 1;}
+    95% {opacity: 0;}}
+}

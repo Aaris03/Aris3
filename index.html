@@ -1,11 +1,132 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Combate - Torre de elicia</title>
+    <link rel="stylesheet" href="src/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
 </head>
 <body>
-   <h1>hola mundo</h1> 
+    <div id="pantallaCarga" class="flex-container">
+        <div>
+            <img id="iconoCarga" src="src/img/load.gif" alt="carga">
+            <h1 id="barraCarga">Estamos cargando el juego "supuetamente"</h1>
+        </div>
+    </div>
+    <div id="escenaPrincipal">
+        <div id="contenedorTitulo">
+            <h1>Elicia's tower</h1>
+            <h2>Coliseum - prototype</h2>
+        </div>
+        <div id="estadisticasPersonaje">
+            <p>Estadisticas del personaje</p>
+            <div class="minicajaEstadisticas">
+                <p>Niveles disponibles <Span id="nivelesDisponibles">Cantidad</Span></p>
+                <div id="cajasBtnRestablecer">
+                    <div class="col botonRestablecer">
+                    </div>
+                </div> 
+            </div> 
+            <div>
+                <p>nivel <span id="nivelPersonaje"></span></p>
+            </div>
+            <div class="minicajaEstadisticas">
+                <p >Ataque <span id="ataquePersonaje"></span></p>
+                <div id="cajaBtnAumentoAtaque" class="col">
+                    <button id="aumentoAtaque">+</button>
+                </div>
+            </div>
+            <div class="minicajaEstadisticas">
+                <p >Defensa <span id="defensaPersonaje"></span></p>
+                <div id="cajaBtnAumentoDefensa" class="col">
+                    <button id="aumentoDefensa">+</button>
+                </div>
+            </div>
+            <div class="minicajaEstadisticas">
+                <p >Vida <span id="vidaPersonaje"></span></p>
+                <div id="cajaBtnAumentoVida" class="col">
+                    <button id="aumentoVida">+</button>
+                </div>
+            </div>
+            <div class="col botonSeleccionaEnemigo">
+            </div>
+        </div>
+        <div id="seleccionEnemigo">
+            <div>
+                <h1 class="center">Selecciona a tu enemigo</h1>
+            </div>
+            <div id="seleccionEnemigos" class="flex-container">
+                <div id="hechicero" class="hoverEnemigo" alt="Hechicero">
+                    <p class="center" alt="hechicero">Hechicero</p>
+                    <img src="src/img/hechicero.png" alt="hechicero">
+                    <p alt="hechicero">Estudiantes de las artes negreras listos para lanzar hechizos racistas a sus enemigos esclavos</p>
+                </div>
+                <div id="guerrero" class="hoverEnemigo">
+                    <p class="center" alt="guerrero">Guerrero</p>
+                    <img src="src/img/guerrero.png" alt="guerrero">
+                    <p alt="guerrero">Fortalecidos por el pepino rigido y curtido en el arte del aguante, si entiendes a que me refiero</p>
+                </div>
+                <div id="ninja" class="hoverEnemigo">
+                    <p class="center" alt="ninja">Ninja</p>
+                    <img src="src/img/ninja.png" alt="ninja">
+                    <p alt="ninja">Adoptados por la luna como sus perras, estos duelistas agiles, reciben constantemente la frase "¿ya esta dentro?"</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div id="escenaCombate">
+        <div id="barraVidaPersonaje" class="barra">
+            <div id="barraVidaMovilPersonaje"></div>
+            <p id="indicadorVidaJugador">100%</p>
+        </div>
+        <div id="personajeEstadisticas" style="display: none;">
+            <p>Personaje</p>
+            <p>vida <span id="vidaPer"></span></p>
+            <p>ataque <span id="ataquePer"></span></p>
+            <p>defensa <span id="defensaPer"></span></p>
+        </div>
+        <div id="enemigoEstadisticas" style="display: none;">
+            <p>Enemigo</p>
+            <p>vida <span id="vidaEne"></span></p>
+            <p>ataque <span id="ataqueEne"></span></p>
+            <p>defensa <span id="defensaEne"></span></p>
+        </div>
+        <div >
+            <div id="dañoIndicador1">
+                <span id="indic1">-0</span>
+            </div>   
+            <img class="enemigoAvatar" src="src/img/enemigo.webp" alt="enemigo">
+        </div>
+        <div>
+            <div id="dañoIndicador2">
+                <span id="indic2">-0</span>
+            </div>
+            <img class="jugadorAvatar" src="src/img/personaje.webp" alt="personaje">
+        </div>
+        <div id="barraVidaEnemigo" class="barra">
+            <div id="barraVidaMovil"></div>
+            <p id="indicadorVidaEnemigo">100%</p>
+        </div>
+        <div id="btnAtaqueJugador">
+            <button id="btnAtaque" disabled><img src="src/img/espada.png" alt="espadaIcono"></button>
+        </div>
+    </div>
+    <div id="modal" class="flex-container">
+        <div class="modalConfirmacionEnemigo">
+            <h1>seleccionaste al <span id="enemigoSelec">enemigo</span></h1>
+            <p>¿Estas seguro que quieres elegir a este enemigo para la lucha?</p>
+            <img id="imagenEnemigo" src="" alt="">
+            <div>
+                <button id="iniciarCombate">Pelear!</button>
+                <button id="cambiarEleccionEnemigo">Elegir otro enemigo</button>
+            </div>
+        </div>
+    </div>
+    <script src="src/Elicia´sTowers.js"></script>
 </body>
 </html>
